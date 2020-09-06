@@ -33,7 +33,7 @@ echo "==========> FULL NAME: $FULL_IMAGE_NAME \n\n"
 # UPDATE GITHUB from dev team
 #-------------------------------------------
 echo "\n[1/8]==========> pull from dev team folder"
-#git pull
+git pull
 echo "[1/8]==========> pull – DONE \n\n"
 
 
@@ -41,8 +41,8 @@ echo "[1/8]==========> pull – DONE \n\n"
 # CONFIGURE package.json
 #-------------------------------------------
 echo "\n[2/8]==========> package.json configuration"
-#yarn install
-#yarn heroku-postbuild
+yarn install
+yarn heroku-postbuild
 echo "[2/8]==========> package.json configuration – DONE \n\n"
 
 
@@ -117,9 +117,34 @@ done
 # CONNECT TO VM IN GCLOUD AND RUN update.sh
 # -------------------------------------------
 echo "\n[8/8]==========> Update GCloud VM"
-ssh g6219701@34.122.49.94   /bin/bash /home/g6219701/update.sh "$DOCKER_USER/$DOCKER_REPOSITORY" $VERSION
+ssh g6219701@34.122.49.94 /bin/bash /home/g6219701/update.sh "$DOCKER_USER/$DOCKER_REPOSITORY" $VERSION
 if [ $? -ne 0 ]; then
   echo "[8/8]==========> Update GCloud VM - FAILED \n\n" && exit
 else
   echo "[8/8]==========> Update GCloud VM - SUCCESSFUL \n\n"
 fi
+
+
+
+
+
+
+
+
+# upstream server_side{
+#   server 127.0.0.1:5001;
+#   server 127.0.0.1:5002;
+#   server 127.0.0.1:5999 backup;
+# }
+
+# server {
+#   listen 80 default_server;
+#   listen [::]:80 default_server;
+
+#   location / {
+#     proxy_pass http://server_side;
+#     proxy_set_header Host $host;
+#     proxy_set_header X-Real-IP $remote_addr;
+#     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#   }
+# }
