@@ -1,5 +1,5 @@
 const JWTSECRET = process.env.JWTSECRET;
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = 'mongodb+srv://dbUSER:dbUSER@cluster-midterm.zx57i.mongodb.net/midtermDB?retryWrites=true&w=majority';
 
 module.exports = {
     jwtSecret: JWTSECRET,
