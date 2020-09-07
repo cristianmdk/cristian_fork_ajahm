@@ -98,7 +98,7 @@ fi
 # REMOVE OLD IMAGE
 # -------------------------------------------
 echo "\n[7/8]==========> Remove docker image"
-docker rmi $FULL_IMAGE_NAME
+#docker rmi $FULL_IMAGE_NAME
 if [ $? -ne 0 ]; then
   echo "[7/8]==========> Remove docker image - FAILED \n\n"
 else
